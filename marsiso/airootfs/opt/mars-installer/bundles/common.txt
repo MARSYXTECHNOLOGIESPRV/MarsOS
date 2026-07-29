@@ -32,3 +32,4 @@ zsh
 nano
 sudo
 starship
+nerd-fonts
