@@ -9,3 +9,37 @@ Built on **[Arch Linux](https://archlinux.org/)**, Mars OS takes advantage of Ar
 Mars OS includes a custom installer, sensible default configuration, and a automated configuration of the 3 included desktop environments that is designed to be lightweight, responsive, and easy to personalize. Rather than complete hand-holding, Mars OS gives users the tools they need to understand and shape their own installation while reducing the amount of manual setup required.
 
 Regardless of your familiarity with the Linux operating system all together, Mars OS is an easy to pick up distro for both beginners and enthusiasts.
+
+---
+# Installation
+---
+## Download Mars OS ISO
+For the most simplistic and easy option, download the Mars OS ISO file from **[here.](https://drive.google.com/drive/folders/1MV13STtLz8qFWZwK-ZnEceCOhA8Te4eb?usp=sharing)**
+(This will take you to a public Google Drive folder with said ISO file)
+
+---
+## Building from source
+
+To build the Mars OS ISO locally from source, clone the repository by running:
+
+```bash
+git clone https://github.com/MARSYXTECHNOLOGIESPRV/MarsOS
+```
+
+Then, change into the `MarsOS` directory:
+
+```bash
+cd MarsOS
+```
+
+Finally, build the ISO with:
+
+```bash
+sudo mkarchiso -v -w work -o out marsiso
+```
+
+Once the build is complete, the compiled ISO will be located in the newly created `out` directory.
+
+
+### NOTE:
+### Building from source requires that you have the packages archiso, base-devel, and git installed on your system.
