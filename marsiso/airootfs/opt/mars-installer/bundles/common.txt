@@ -33,3 +33,5 @@ nano
 sudo
 starship
 nerd-fonts
+zsh-autosuggestions
+zsh-syntax-highlighting
