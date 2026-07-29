@@ -54,7 +54,7 @@ users_create() {
     arch-chroot /mnt useradd \
         -m \
         -G wheel \
-        -s /bin/bash \
+        -s /bin/zsh \
         "$USER"
 
 
