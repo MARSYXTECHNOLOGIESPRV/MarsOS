@@ -5,15 +5,12 @@
 # User Library
 ##################################################
 
-
 ##################################################
 # Requires:
 # lib/util.sh
 ##################################################
 
 source "$(dirname "${BASH_SOURCE[0]}")/util.sh"
-
-
 
 ##################################################
 # Create User
@@ -25,8 +22,6 @@ users_create() {
     local USER_PASS="$2"
     local ROOT_PASS="$3"
 
-
-
     if [[ -z "$USER" ]]; then
 
         log "Missing username."
@@ -35,11 +30,7 @@ users_create() {
 
     fi
 
-
-
     log "Creating user account: $USER"
-
-
 
     if arch-chroot /mnt id "$USER" >/dev/null 2>&1; then
 
@@ -49,7 +40,9 @@ users_create() {
 
     fi
 
-
+    ##################################################
+    # Create User
+    ##################################################
 
     arch-chroot /mnt useradd \
         -m \
@@ -57,7 +50,30 @@ users_create() {
         -s /bin/zsh \
         "$USER"
 
+    ##################################################
+    # Default Shell
+    ##################################################
 
+    log "Setting Zsh as the default shell"
+
+    # Make sure zsh actually exists
+    if ! arch-chroot /mnt test -x /bin/zsh; then
+
+        log "Zsh is not installed."
+
+        return 1
+
+    fi
+
+    # Root account
+    arch-chroot /mnt usermod \
+        -s /bin/zsh \
+        root
+
+    # Future users
+    arch-chroot /mnt sed -i \
+        's|^SHELL=.*|SHELL=/bin/zsh|' \
+        /etc/default/useradd
 
     ##################################################
     # User Password
@@ -65,26 +81,18 @@ users_create() {
 
     if [[ -z "$USER_PASS" ]]; then
 
-
         log "No user password supplied."
 
         arch-chroot /mnt passwd -d "$USER"
 
-
     else
 
-
         log "Setting user password"
-
-
 
         printf "%s:%s\n" "$USER" "$USER_PASS" | \
             arch-chroot /mnt chpasswd
 
-
     fi
-
-
 
     ##################################################
     # Root Password
@@ -92,26 +100,18 @@ users_create() {
 
     if [[ -z "$ROOT_PASS" ]]; then
 
-
         log "No root password supplied."
 
         arch-chroot /mnt passwd -d root
 
-
     else
 
-
         log "Setting root password"
-
-
 
         printf "root:%s\n" "$ROOT_PASS" | \
             arch-chroot /mnt chpasswd
 
-
     fi
-
-
 
     ##################################################
     # Enable sudo for wheel group
@@ -119,14 +119,12 @@ users_create() {
 
     log "Enabling wheel sudo"
 
-
-
     arch-chroot /mnt /bin/bash -c "
         sed -i \
         's/^# %wheel ALL=(ALL:ALL) ALL/%wheel ALL=(ALL:ALL) ALL/' \
         /etc/sudoers
     "
 
-
+    log "User configuration complete."
 
 }
