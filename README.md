@@ -42,4 +42,4 @@ Once the build is complete, the compiled ISO will be located in the newly create
 
 
 ### NOTE:
-### Building from source requires that you have the packages archiso, base-devel, and git installed on your system.
+Building from source requires that you have the packages archiso, base-devel, and git installed on your system.
