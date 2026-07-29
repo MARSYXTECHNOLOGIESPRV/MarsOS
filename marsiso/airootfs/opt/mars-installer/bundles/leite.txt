@@ -17,3 +17,5 @@ lolcat
 ly
 zsh
 nano
+curl
+starship
