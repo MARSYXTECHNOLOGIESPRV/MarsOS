@@ -31,3 +31,4 @@ gzip
 zsh
 nano
 sudo
+starship
