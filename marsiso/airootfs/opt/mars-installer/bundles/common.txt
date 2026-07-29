@@ -6,6 +6,7 @@ kdenlive
 mpv
 vlc
 code
+curl
 neovim
 kate
 ark
