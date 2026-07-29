@@ -1,2 +1,0 @@
-spice-vdagent
-qemu-guest-agent
