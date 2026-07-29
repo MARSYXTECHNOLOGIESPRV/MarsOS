@@ -19,3 +19,4 @@ zsh
 nano
 curl
 starship
+nerd-fonts
