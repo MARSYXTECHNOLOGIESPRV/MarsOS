@@ -20,3 +20,5 @@ nano
 curl
 starship
 nerd-fonts
+zsh-autosuggestions
+zsh-syntax-highlighting
