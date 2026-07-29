@@ -1,0 +1,10 @@
+NAME="Mars OS"
+PRETTY_NAME="Mars OS"
+ID=marsos
+ID_LIKE=arch
+BUILD_ID=rolling
+ANSI_COLOR="35"
+HOME_URL="https://marsos.example"
+DOCUMENTATION_URL="https://marsos.example/docs"
+SUPPORT_URL="https://marsos.example/support"
+BUG_REPORT_URL="https://marsos.example/bugs"
