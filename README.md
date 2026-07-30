@@ -40,8 +40,16 @@ Finally, build the ISO with:
 sudo mkarchiso -v -w work -o out marsiso
 ```
 
+If a build already exists and you are trying to generate a new one, first remove the work and out directories by running:
+```bash
+sudo rm -rf work out
+```
+
+Then rebuild.
+
 Once the build is complete, the compiled ISO will be located in the newly created `out` directory.
 
+---
 
 ### NOTE:
 Building from source requires that you have the packages archiso, base-devel, and git installed on your system.
