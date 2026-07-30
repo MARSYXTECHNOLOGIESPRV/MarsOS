@@ -220,6 +220,18 @@ main() {
     log "${PACKAGES[*]}"
 
 
+    log "Generating mirror list..."
+
+    reflector \
+    --latest 20 \
+    --protocol https \
+    --sort rate \
+    --save /etc/pacman.d/mirrorlist \
+    || die "Failed to generate mirror list."
+    pacman -Syy \
+    || die "Failed to synchronize package databases."
+
+
 
     pacstrap \
         -K \
