@@ -1,0 +1,26 @@
+export ZSH="$HOME/.oh-my-zsh"
+
+ZSH_THEME=""
+
+
+plugins=(
+  git
+  sudo
+  zsh-autosuggestions
+  zsh-syntax-highlighting
+)
+
+
+source $ZSH/oh-my-zsh.sh
+eval "$(starship init zsh)"
+
+alias update-mars="sudo pacman -Syyu"
+alias update-mars-yay="yay -Syu"
+alias mars-download="sudo pacman -Syu"
+alias mars-download-yay="yay -S"
+alias mars-remove="sudo pacman -Rns"
+alias mars-pacfind="pacman -Ss"
+alias ll="ls -la"
+alias t="nvim"
+alias cls="clear"
+alias src="source ~/.zshrc"

@@ -1,0 +1,129 @@
+"$schema" = 'https://starship.rs/config-schema.json'
+
+format = """
+$os\
+$username\
+$hostname\
+$directory\
+$git_branch\
+$git_status\
+$c\
+$cpp\
+$rust\
+$python\
+$nodejs\
+$golang\
+$java\
+$package\
+$cmd_duration\
+$time
+$character"""
+
+add_newline = true
+
+palette = "mars"
+
+[palettes.mars]
+bg = "#1A1B26"
+fg = "#C0CAF5"
+purple = "#BB9AF7"
+purple_dark = "#9D7CD8"
+blue = "#7AA2F7"
+cyan = "#7DCFFF"
+green = "#9ECE6A"
+yellow = "#E0AF68"
+orange = "#FF9E64"
+red = "#F7768E"
+grey = "#565F89"
+
+[character]
+success_symbol = "[❯](bold purple)"
+error_symbol = "[❯](bold red)"
+vimcmd_symbol = "[❮](bold cyan)"
+
+[os]
+disabled = false
+style = "bg:purple fg:bg"
+
+[os.symbols]
+Arch = " "
+Linux = " "
+
+[username]
+show_always = true
+style_user = "bg:purple fg:bg"
+style_root = "bg:red fg:bg"
+format = "[ $user ]($style)"
+
+[hostname]
+ssh_only = false
+style = "bg:purple_dark fg:bg"
+format = "[](fg:purple bg:purple_dark)[ $hostname ]($style)"
+
+[directory]
+style = "bg:blue fg:bg"
+truncation_length = 3
+truncate_to_repo = true
+home_symbol = "~"
+read_only = " "
+format = "[](fg:purple_dark bg:blue)[ $path ]($style)"
+
+[git_branch]
+symbol = " "
+style = "bg:green fg:bg"
+format = "[](fg:blue bg:green)[ $symbol$branch ]($style)"
+
+[git_status]
+style = "bg:green fg:bg"
+format = "[$all_status$ahead_behind ]($style)"
+
+[package]
+symbol = "󰏗 "
+style = "bg:cyan fg:bg"
+format = "[](fg:green bg:cyan)[ $symbol$version ]($style)"
+
+[python]
+symbol = " "
+style = "bg:yellow fg:bg"
+format = "[](fg:cyan bg:yellow)[ $symbol$version ]($style)"
+
+[rust]
+symbol = "󱘗 "
+style = "bg:orange fg:bg"
+format = "[](fg:yellow bg:orange)[ $symbol$version ]($style)"
+
+[nodejs]
+symbol = "󰎙 "
+style = "bg:green fg:bg"
+format = "[](fg:orange bg:green)[ $symbol$version ]($style)"
+
+[c]
+symbol = " "
+style = "bg:cyan fg:bg"
+format = "[](fg:green bg:cyan)[ $symbol ]($style)"
+
+[cpp]
+symbol = " "
+style = "bg:cyan fg:bg"
+format = "[ $symbol ]($style)"
+
+[golang]
+symbol = " "
+style = "bg:blue fg:bg"
+format = "[](fg:green bg:blue)[ $symbol$version ]($style)"
+
+[java]
+symbol = " "
+style = "bg:red fg:bg"
+format = "[](fg:pink bg:purple)[ $symbol$version ]($style)"
+
+[cmd_duration]
+min_time = 1000
+style = "bg:grey fg:fg"
+format = "[](fg:red bg:blue)[ 󰔛 $duration ]($style)"
+
+[time]
+disabled = false
+time_format = "%H:%M"
+style = "bg:purple fg:bg"
+format = "[](fg:grey bg:purple)[  $time ]($style)[](fg:purple)"
