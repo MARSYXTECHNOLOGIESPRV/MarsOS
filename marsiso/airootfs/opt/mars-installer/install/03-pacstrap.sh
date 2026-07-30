@@ -219,6 +219,14 @@ main() {
 log "Installing packages:"
 log "${PACKAGES[*]}"
 
+log "Initializing pacman keyring..."
+
+pacman-key --init \
+    || die "Failed to initialize pacman keyring."
+
+pacman-key --populate archlinux \
+    || die "Failed to populate pacman keyring."
+
 log "Generating mirror list..."
 
 reflector \
