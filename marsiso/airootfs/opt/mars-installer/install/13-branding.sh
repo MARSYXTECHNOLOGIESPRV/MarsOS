@@ -2,7 +2,7 @@
 
 ##################################################
 # Mars OS Installer v1.1
-# Install Module 12 - Branding
+# Install Module 13 - Branding
 ##################################################
 
 set -e
