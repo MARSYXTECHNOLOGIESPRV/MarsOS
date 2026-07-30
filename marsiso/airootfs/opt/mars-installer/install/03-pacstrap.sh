@@ -212,41 +212,40 @@ main() {
 
 
 
-    ##################################################
-    # Install Packages
-    ##################################################
+##################################################
+# Install Packages
+##################################################
 
-    log "Installing packages:"
-    log "${PACKAGES[*]}"
+log "Installing packages:"
+log "${PACKAGES[*]}"
 
+log "Generating mirror list..."
 
-    log "Generating mirror list..."
-
-    reflector \
+reflector \
     --latest 20 \
     --protocol https \
     --sort rate \
     --save /etc/pacman.d/mirrorlist \
     || die "Failed to generate mirror list."
-    pacman -Syy \
+
+log "Refreshing package databases..."
+
+pacman -Syy \
     || die "Failed to synchronize package databases."
 
+log "Running pacstrap..."
 
-
-    pacstrap \
-        -K \
-        /mnt \
-        "${PACKAGES[@]}" \
-        2>&1 | tee -a "$LOG_FILE" \
-        || die \
-"Pacstrap failed.
+pacstrap \
+    -K \
+    /mnt \
+    "${PACKAGES[@]}" \
+    2>&1 | tee -a "$LOG_FILE" \
+    || die "Pacstrap failed.
 
 Check:
 $LOG_FILE"
 
-
-
-    success \
+success \
 "Base system installed successfully."
 
 }
