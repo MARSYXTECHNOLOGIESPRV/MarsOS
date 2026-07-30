@@ -2,7 +2,7 @@
 
 ##################################################
 # Mars OS Installer v1.1
-# Install Module 13 - Finish Installation
+# Install Module 14 - Finish Installation
 ##################################################
 
 set -e
