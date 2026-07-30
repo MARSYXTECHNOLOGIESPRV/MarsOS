@@ -16,7 +16,6 @@ qt6-wayland
 quickshell
 awww
 wofi
-pamac-all
 qt6ct
 qt5ct
 qt5-svg
