@@ -2,7 +2,7 @@
 
 ##################################################
 # Mars OS Installer v1.1
-# Install Module 11 - Bootloader Installation
+# Install Module 12 - Bootloader Installation
 ##################################################
 
 set -e
