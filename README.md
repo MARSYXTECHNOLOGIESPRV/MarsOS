@@ -17,7 +17,16 @@ Regardless of your familiarity with the Linux operating system all together, Mar
 For the most simplistic and easy option, download the Mars OS ISO file from **[here.](https://drive.google.com/drive/folders/1MV13STtLz8qFWZwK-ZnEceCOhA8Te4eb?usp=sharing)**
 (This will take you to a public Google Drive folder with said ISO file)
 
-Following the download, make sure you have a USB Stick at least 3 GiB in capacity and use a bootable USB creation tool such as **[Rufus](https://rufus.ie/)** or the **[Dd](https://wiki.archlinux.org/title/Dd)** command.
+Following the download, make sure you have a USB Stick at least 3 GiB in capacity and use a bootable USB creation tool such as **[Rufus](https://rufus.ie/)** or the **[Dd](https://wiki.archlinux.org/title/Dd)** command like so:
+
+First, Unmount any unused partitions on the USB drive with:
+```bash
+sudo umount /dev/X*
+```
+where *X* is the drive label. Then write the ISO with:
+```bash
+sudo dd bs=4M if=/path/to/marsos.iso of=/dev/sdX status=progress oflag=sync
+```
 
 ---
 ## Building from source
