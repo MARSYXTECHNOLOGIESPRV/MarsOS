@@ -15,7 +15,6 @@ qt5-wayland
 qt6-wayland
 quickshell
 awww
-wofi
 qt6ct
 qt5ct
 qt5-svg
