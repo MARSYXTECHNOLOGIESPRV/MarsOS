@@ -14,8 +14,8 @@ plugins=(
 source $ZSH/oh-my-zsh.sh
 eval "$(starship init zsh)"
 
-alias update-mars="sudo pacman -Syyu"
-alias update-mars-yay="yay -Syu"
+alias mars-update="sudo pacman -Syyu"
+alias mars-update-yay="yay -Syu"
 alias mars-download="sudo pacman -Syu"
 alias mars-download-yay="yay -S"
 alias mars-remove="sudo pacman -Rns"
