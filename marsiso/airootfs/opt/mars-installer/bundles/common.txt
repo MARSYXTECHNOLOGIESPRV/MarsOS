@@ -36,3 +36,4 @@ nerd-fonts
 zsh-autosuggestions
 zsh-syntax-highlighting
 mpv-mpris
+wine
