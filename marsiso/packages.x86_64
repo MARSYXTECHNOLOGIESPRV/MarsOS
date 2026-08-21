@@ -5,7 +5,6 @@ arch-install-scripts
 base
 dialog
 efibootmgr
-fastfetch
 
 btrfs-progs
 dosfstools
@@ -31,3 +30,8 @@ vim
 less
 
 sudo
+
+syslinux
+memtest86+
+memtest86+-efi
+edk2-shell
