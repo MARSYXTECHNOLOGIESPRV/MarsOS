@@ -2,6 +2,8 @@
 
 The official repository for the Linux distribution **Mars OS**, developed by **MARSYX TECHNOLOGIES PRV**.
 
+Please check out the [Credits and contribution](CREDIT.md).
+
 Mars OS is a Linux distribution designed to find a middle ground between user convenience and complete control over the system. It aims to provide a polished experience out of the box while still encouraging users to customize, explore, and learn how their system works.
 
 Built on **[Arch Linux](https://archlinux.org/)**, Mars OS takes advantage of Arch's rolling release model and uses the **[pacman](https://archlinux.org/pacman/)** package manager for fast and reliable software management. Users can also access the **[Arch User Repository (AUR)](https://aur.archlinux.org/)**, giving them access to one of the largest collections of community-maintained software available on Linux.
