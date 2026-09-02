@@ -64,3 +64,4 @@ Once the build is complete, the compiled ISO will be located in the newly create
 
 ### NOTE:
 Building from source requires that you have the packages archiso, base-devel, and git installed on your system.
+Archiso may require additional packages. Only dependency known thus far is grub, but this may change as Mars OS gets further development. 
