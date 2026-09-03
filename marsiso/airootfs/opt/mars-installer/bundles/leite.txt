@@ -11,9 +11,6 @@ networkmanager
 base-devel
 git
 dialog
-fastfetch
-figlet
-lolcat
 ly
 zsh
 nano
