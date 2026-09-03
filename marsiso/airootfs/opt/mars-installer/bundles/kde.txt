@@ -1,2 +1,2 @@
 xorg
-plasma
+plasma-x11-session
