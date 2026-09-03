@@ -1,17 +1,13 @@
 nemo
 firefox
 libreoffice-still
-gimp
-kdenlive
 mpv
 vlc
-code
 curl
 neovim
 kate
 ark
 networkmanager
-audacity
 flatpak
 kitty
 obs-studio
@@ -22,9 +18,6 @@ bluez-libs
 bluez-utils
 btop
 dialog
-fastfetch
-figlet
-lolcat
 ffmpeg
 ly
 gzip
@@ -33,7 +26,5 @@ nano
 sudo
 starship
 nerd-fonts
-zsh-autosuggestions
-zsh-syntax-highlighting
 mpv-mpris
 wine
