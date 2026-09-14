@@ -2,7 +2,7 @@
 
 The official repository for the Linux distribution **Mars OS**, developed by **MARSYX TECHNOLOGIES PRV**.
 
-Please check out the [Credits and contribution](CREDIT.md).
+Please check out [Credits and contribution](CREDIT.md)! :3
 
 Mars OS is a Linux distribution designed to find a middle ground between user convenience and complete control over the system. It aims to provide a polished experience out of the box while still encouraging users to customize, explore, and learn how their system works.
 
