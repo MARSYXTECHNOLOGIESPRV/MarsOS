@@ -29,6 +29,8 @@ network_online() {
 network_has_iwctl() {
 
     command -v iwctl >/dev/null 2>&1
+    systemctl enable iwd
+    systemctl start iwd
 
 }
 
@@ -52,5 +54,7 @@ network_wifi_setup() {
 
 
     iwctl
+    systemctl enable iwd
+    systemctl start iwd
 
 }
