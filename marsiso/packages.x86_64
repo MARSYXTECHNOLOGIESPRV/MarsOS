@@ -5,6 +5,7 @@ arch-install-scripts
 base
 dialog
 efibootmgr
+calamares
 
 btrfs-progs
 dosfstools
