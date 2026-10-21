@@ -66,10 +66,7 @@ main() {
         USERNAME=$(ui_input \
             "User Account" \
             "Enter your username:" \
-            "user")
-
-
-        [[ $? -eq 0 ]] || die "User creation cancelled."
+            "user") || exit $?
 
 
         if valid_username "$USERNAME"; then
@@ -103,10 +100,7 @@ main() {
             "User Password" \
             "Enter a password for $USERNAME.
 
-Leave blank for no password.")
-
-
-        [[ $? -eq 0 ]] || die "User creation cancelled."
+Leave blank for no password.") || exit $?
 
 
         if [[ -z "$USER_PASSWORD" ]]; then
@@ -123,10 +117,7 @@ Leave blank for no password.")
 
         PASSWORD_CONFIRM=$(ui_password \
             "Confirm Password" \
-            "Re-enter the password")
-
-
-        [[ $? -eq 0 ]] || die "User creation cancelled."
+            "Re-enter the password") || exit $?
 
 
 
@@ -153,10 +144,7 @@ Leave blank for no password.")
             "Root Password" \
             "Enter the root password.
 
-Leave blank for no password.")
-
-
-        [[ $? -eq 0 ]] || die "User creation cancelled."
+Leave blank for no password.") || exit $?
 
 
 
@@ -174,10 +162,7 @@ Leave blank for no password.")
 
         ROOT_CONFIRM=$(ui_password \
             "Confirm Root Password" \
-            "Re-enter the root password")
-
-
-        [[ $? -eq 0 ]] || die "User creation cancelled."
+            "Re-enter the root password") || exit $?
 
 
 

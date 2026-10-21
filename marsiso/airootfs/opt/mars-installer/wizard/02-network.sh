@@ -129,6 +129,8 @@ but no internet connection was detected."
 
 
 
+    else
+        exit $?
     fi
 
 
@@ -137,9 +139,7 @@ but no internet connection was detected."
     # No Network
     ##################################################
 
-    die \
-"Internet connection is required
-to continue installation."
+    exit 2
 
 }
 

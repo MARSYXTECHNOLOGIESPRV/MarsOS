@@ -43,7 +43,7 @@ to install your system.
 Press OK to continue."
 
 
-    if ! ui_yesno \
+    ui_yesno \
         "Warning" \
 "All selected disks and partitions may
 be formatted during installation.
@@ -51,11 +51,7 @@ be formatted during installation.
 Make sure you have backups of any
 important data.
 
-Continue?"; then
-
-        die "Installation cancelled by user."
-
-    fi
+Continue?" || exit $?
 
 }
 

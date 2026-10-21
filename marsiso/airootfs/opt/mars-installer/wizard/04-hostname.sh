@@ -59,11 +59,7 @@ main() {
         HOSTNAME=$(ui_input \
             "Hostname" \
             "Enter a hostname for this computer:" \
-            "my-awesome-sauce-device")
-
-        if [[ $? -ne 0 ]]; then
-            die "Hostname selection cancelled."
-        fi
+            "my-awesome-sauce-device") || exit $?
 
         if valid_hostname "$HOSTNAME"; then
             break

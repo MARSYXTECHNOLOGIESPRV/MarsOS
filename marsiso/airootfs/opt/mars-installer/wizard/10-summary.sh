@@ -40,9 +40,7 @@ main() {
     esac
 
     case "$PROFILE" in
-        standard) PROFILE_NAME="Mars OS Standard (Hyprland)" ;;
-        kde) PROFILE_NAME="Mars OS KDE (Plasma)" ;;
-        leite) PROFILE_NAME="Mars OS Leite (LXQt)" ;;
+        hyprland) PROFILE_NAME="Hyprland" ;;
     esac
 
     case "$GRAPHICS" in
@@ -50,6 +48,7 @@ main() {
         amd) GRAPHICS_NAME="AMD Radeon" ;;
         intel) GRAPHICS_NAME="Intel Integrated" ;;
         nvidia) GRAPHICS_NAME="NVIDIA" ;;
+        nvidia-legacy) GRAPHICS_NAME="Legacy NVIDIA (Mesa)" ;;
         vm) GRAPHICS_NAME="Virtual Machine" ;;
     esac
 
@@ -57,7 +56,7 @@ main() {
     # Summary
     ##################################################
 
-    if ! ui_yesno \
+    ui_yesno \
         "Installation Summary" \
 "Please review your installation settings.
 
@@ -82,19 +81,13 @@ $GRAPHICS_NAME
 System:
 $FIRMWARE_NAME
 
-Edition:
+Desktop:
 $PROFILE_NAME
 
 Bootloader:
 $BOOTLOADER
 
-Begin installation?"
-
-    then
-
-        die "Installation cancelled by user."
-
-    fi
+Begin installation?" || exit $?
 
 }
 

@@ -48,6 +48,12 @@ graphics_install() {
             ;;
 
 
+        nvidia-legacy)
+
+            BUNDLE="nvidia-legacy"
+            ;;
+
+
         vm)
 
             BUNDLE="vm"

@@ -57,30 +57,38 @@ check_requirements() {
 ##################################################
 
 run_wizard() {
+    local modules=("$WIZARD_DIR"/*.sh)
+    local index=0
+    local status
+    local module
 
+    while (( index < ${#modules[@]} )); do
+        module="${modules[$index]}"
+        log "Running wizard module: $module"
 
-    for MODULE in "$WIZARD_DIR"/*.sh; do
-
-
-        if [[ -f "$MODULE" ]]; then
-
-
-            log "Running wizard module: $MODULE"
-
-
-
-            bash "$MODULE" || die \
-"\
-Wizard failed:
-
-$MODULE
-"
-
-
-
+        if bash "$module"; then
+            index=$((index + 1))
+            continue
+        else
+            status=$?
         fi
 
-
+        case "$status" in
+            3)
+                if (( index == 0 )); then
+                    log "Wizard canceled at the first page."
+                    return 1
+                fi
+                index=$((index - 1))
+                ;;
+            1|130|143|255)
+                log "Wizard canceled by user."
+                return 1
+                ;;
+            *)
+                die "Wizard failed on page: $module (exit code $status)"
+                ;;
+        esac
     done
 
 
@@ -145,18 +153,10 @@ main() {
 
 
 
-    ui_msgbox \
-        "Mars OS Installer v1.1" \
-"\
-Welcome to Mars OS.
-
-This installer will guide you through
-configuring and installing your system.
-"
-
-
-
-    run_wizard
+    if ! run_wizard; then
+        log "Installation canceled before any changes were made."
+        return 0
+    fi
 
 
     run_install

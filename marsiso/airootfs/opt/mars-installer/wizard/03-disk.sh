@@ -74,19 +74,11 @@ main() {
         "Disk Selection" \
         "Select the disk where Mars OS will be installed:" \
         "${MENU_ITEMS[@]}"
-    )
+    ) || exit $?
 
 
 
-    if [[ -z "$SELECTED_DISK" ]]; then
-
-        die "No disk selected."
-
-    fi
-
-
-
-    if ! ui_yesno \
+    ui_yesno \
         "Confirm Disk" \
 "Selected disk:
 
@@ -95,11 +87,7 @@ $SELECTED_DISK
 WARNING:
 All data on this disk may be erased.
 
-Continue?"; then
-
-        die "Disk selection cancelled."
-
-    fi
+Continue?" || exit $?
 
 
 

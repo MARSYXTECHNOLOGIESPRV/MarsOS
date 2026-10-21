@@ -2,7 +2,7 @@
 
 ##################################################
 # Mars OS Installer v1.1
-# Wizard Module 09 - Profile Selection
+# Wizard Module 09 - System Type
 ##################################################
 
 set -e
@@ -35,40 +35,16 @@ main() {
 
 
     local BASE_SYSTEM
-    local PROFILE
-
-
-
     ##################################################
-    # Base System
+    # Firmware Type
     ##################################################
 
     BASE_SYSTEM=$(ui_menu \
-        "Base System Type" \
+        "System Type" \
         "Select the target firmware:" \
         uefi "Mars OS - Modern UEFI systems" \
         bios "Mars OS Minus - Legacy BIOS systems"
-    )
-
-
-    [[ $? -eq 0 ]] || die "Installation cancelled."
-
-
-
-    ##################################################
-    # System Profile
-    ##################################################
-
-    PROFILE=$(ui_menu \
-        "System Profile" \
-        "Select the edition of Mars OS to install:" \
-        standard "Mars OS Standard (Hyprland)" \
-        kde "Mars OS KDE (Plasma)" \
-        leite "Mars OS Leite (LXQt)"
-    )
-
-
-    [[ $? -eq 0 ]] || die "Installation cancelled."
+    ) || exit $?
 
 
 
@@ -77,8 +53,7 @@ main() {
     ##################################################
 
     config_set FIRMWARE "$BASE_SYSTEM"
-
-    config_set PROFILE "$PROFILE"
+    config_set PROFILE "hyprland"
 
 
 
@@ -87,9 +62,6 @@ main() {
     ##################################################
 
     local BASE_NAME
-    local PROFILE_NAME
-
-
     case "$BASE_SYSTEM" in
 
         uefi)
@@ -108,41 +80,19 @@ main() {
 
 
 
-    case "$PROFILE" in
-
-        standard)
-            PROFILE_NAME="Mars OS Standard (Hyprland)"
-            ;;
-
-        kde)
-            PROFILE_NAME="Mars OS KDE (Plasma)"
-            ;;
-
-        leite)
-            PROFILE_NAME="Mars OS Leite (LXQt)"
-            ;;
-
-        *)
-            PROFILE_NAME="Unknown"
-            ;;
-
-    esac
-
-
-
     ##################################################
-    # Summary
+    # Confirmation
     ##################################################
 
     ui_msgbox \
-        "Profile Selected" \
+        "System Type Selected" \
 "Base System:
 
 $BASE_NAME
 
-Edition:
+Desktop:
 
-$PROFILE_NAME"
+Hyprland"
 
 
 

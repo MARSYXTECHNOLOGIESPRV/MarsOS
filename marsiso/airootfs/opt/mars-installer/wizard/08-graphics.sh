@@ -37,12 +37,9 @@ main() {
         amd     "AMD Radeon" \
         intel   "Intel Integrated Graphics" \
         nvidia  "NVIDIA Graphics" \
+        nvidia-legacy "Legacy NVIDIA (Mesa)" \
         vm       "Virtual Machine"
-    )
-
-    if [[ $? -ne 0 ]]; then
-        die "Graphics selection cancelled."
-    fi
+    ) || exit $?
 
     case "$GPU" in
         auto)
@@ -60,6 +57,10 @@ main() {
         nvidia)
             config_set GRAPHICS "nvidia"
             DISPLAY_NAME="NVIDIA Graphics"
+            ;;
+        nvidia-legacy)
+            config_set GRAPHICS "nvidia-legacy"
+            DISPLAY_NAME="Legacy NVIDIA (Mesa)"
             ;;
         vm)
             config_set GRAPHICS "vm"

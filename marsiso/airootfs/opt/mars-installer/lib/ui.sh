@@ -39,6 +39,8 @@ ui_yesno() {
     local MESSAGE="$2"
 
     $DIALOG \
+        --extra-button \
+        --extra-label "Back" \
         --title "$TITLE" \
         --yesno "$MESSAGE" \
         10 \
@@ -59,6 +61,8 @@ ui_menu() {
     shift 2
 
     $DIALOG \
+        --extra-button \
+        --extra-label "Back" \
         --title "$TITLE" \
         --menu "$MESSAGE" \
         15 \
@@ -83,6 +87,8 @@ ui_input() {
     local DEFAULT="$3"
 
     $DIALOG \
+        --extra-button \
+        --extra-label "Back" \
         --title "$TITLE" \
         --inputbox "$MESSAGE" \
         10 \
@@ -105,6 +111,8 @@ ui_password() {
     local MESSAGE="$2"
 
     $DIALOG \
+        --extra-button \
+        --extra-label "Back" \
         --title "$TITLE" \
 	--insecure \
         --passwordbox "$MESSAGE" \
@@ -158,6 +166,8 @@ ui_menu_from_file() {
 
 
     $DIALOG \
+        --extra-button \
+        --extra-label "Back" \
         --title "$TITLE" \
         --menu "$MESSAGE" \
         20 \

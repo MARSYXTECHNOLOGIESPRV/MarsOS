@@ -39,7 +39,7 @@ die() {
     echo "$MESSAGE"
     echo
 
-    exit 1
+    exit 2
 
 }
 

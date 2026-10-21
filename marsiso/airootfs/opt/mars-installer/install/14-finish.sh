@@ -70,29 +70,12 @@ main() {
         case "$PROFILE" in
 
 
-            standard)
+            hyprland)
 
                 chroot_run systemctl enable greetd \
                     2>/dev/null || true
 
                 ;;
-
-
-            kde)
-
-                chroot_run systemctl enable sddm \
-                    2>/dev/null || true
-
-                ;;
-
-
-            leite)
-
-                chroot_run systemctl enable sddm \
-                    2>/dev/null || true
-
-                ;;
-
 
         esac
 

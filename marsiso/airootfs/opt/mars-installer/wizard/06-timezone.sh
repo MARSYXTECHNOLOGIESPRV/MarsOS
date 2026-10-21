@@ -88,18 +88,14 @@ main() {
         "Timezone Region" \
         "Select your timezone region:" \
         "$REGION"
-    )
+    ) || {
+        local status=$?
+        rm -f "$REGION"
+        exit "$status"
+    }
 
 
     rm -f "$REGION"
-
-
-    if [[ -z "$SELECTED_REGION" ]]; then
-
-        die "No timezone region selected."
-
-    fi
-
 
 
     ##################################################
@@ -118,18 +114,14 @@ main() {
         "Timezone Location" \
         "Select your timezone location:" \
         "$CITY"
-    )
+    ) || {
+        local status=$?
+        rm -f "$CITY"
+        exit "$status"
+    }
 
 
     rm -f "$CITY"
-
-
-
-    if [[ -z "$SELECTED_CITY" ]]; then
-
-        die "No timezone location selected."
-
-    fi
 
 
 

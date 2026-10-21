@@ -75,16 +75,8 @@ profile_install() {
 
     case "$PROFILE" in
 
-        standard)
-            profile_standard
-            ;;
-
-        kde)
-            profile_kde
-            ;;
-
-        leite)
-            profile_leite
+        hyprland)
+            profile_hyprland
             ;;
 
         *)
@@ -114,36 +106,12 @@ profile_common() {
 }
 
 ##################################################
-# Standard
+# Hyprland
 ##################################################
 
-profile_standard() {
+profile_hyprland() {
 
-    log "Applying Standard profile"
-
-    profile_common
-
-}
-
-##################################################
-# KDE
-##################################################
-
-profile_kde() {
-
-    log "Applying KDE profile"
-
-    profile_common
-
-}
-
-##################################################
-# Leite
-##################################################
-
-profile_leite() {
-
-    log "Applying Leite profile"
+    log "Applying Hyprland profile"
 
     profile_common
 
