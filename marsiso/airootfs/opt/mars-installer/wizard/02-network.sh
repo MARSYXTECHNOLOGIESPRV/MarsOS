@@ -71,41 +71,42 @@ Continuing installation."
         "Network" \
         "No active internet connection detected.
 
-Do you want to configure Wi-Fi now?"; then
+Do you want to configure a network now?"; then
 
 
 
-        if ! network_has_iwctl; then
+        if ! network_has_nmtui; then
 
 
             die \
-"iwctl was not found.
+        "nmtui was not found.
 
-Cannot configure wireless."
+        Cannot configure the network."
 
         fi
 
 
 
         ui_msgbox \
-            "Wi-Fi Setup" \
-"Opening iwd wireless configuration.
+            "Network Setup" \
+"Opening the NetworkManager text interface.
 
-Use iwctl to connect to your network.
+Use Activate a connection to configure Ethernet or Wi-Fi.
 
-When finished, exit iwctl
+When finished, quit nmtui
 to continue."
 
 
 
-        network_wifi_setup
+        network_setup \
+            || die "Failed to start NetworkManager or nmtui."
 
 
 
         if network_online; then
 
 
-            config_set NETWORK "wifi"
+            config_set NETWORK "connected"
 
 
 

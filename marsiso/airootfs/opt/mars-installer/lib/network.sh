@@ -23,38 +23,49 @@ network_online() {
 
 
 ##################################################
-# Check Wi-Fi Tool
+# Start NetworkManager
 ##################################################
 
-network_has_iwctl() {
+network_manager_start() {
 
-    command -v iwctl >/dev/null 2>&1
-    systemctl enable iwd
-    systemctl start iwd
+    systemctl start NetworkManager \
+        >/dev/null 2>&1
 
 }
 
 
 
 ##################################################
-# Start Wi-Fi Configuration
+# Check NetworkManager Text UI
 ##################################################
 
-network_wifi_setup() {
+network_has_nmtui() {
+
+    command -v nmtui >/dev/null 2>&1
+
+}
 
 
-    if ! network_has_iwctl; then
 
-        log "iwctl not available."
+##################################################
+# Start Network Configuration
+##################################################
+
+network_setup() {
+
+    if ! network_has_nmtui; then
+
+        log "nmtui not available."
 
         return 1
 
     fi
 
 
+    network_manager_start \
+        || return 1
 
-    iwctl
-    systemctl enable iwd
-    systemctl start iwd
+
+    nmtui
 
 }

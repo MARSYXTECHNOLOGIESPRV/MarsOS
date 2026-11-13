@@ -17,8 +17,8 @@ xfsprogs
 
 grub
 
-iwd
-iw
+networkmanager
+wpa_supplicant
 wireless-regdb
 
 linux-lts
@@ -27,7 +27,7 @@ mkinitcpio
 mkinitcpio-archiso
 
 nano
-vim
+nvim
 less
 
 sudo
