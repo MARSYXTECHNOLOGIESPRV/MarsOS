@@ -62,7 +62,7 @@ main() {
 
     BASE_PACKAGES=(
         base
-        linux
+        linux-lts
         linux-firmware
         mkinitcpio
     )

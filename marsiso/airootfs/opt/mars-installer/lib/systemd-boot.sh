@@ -158,8 +158,8 @@ EOF
 
     cat > /mnt/boot/loader/entries/marsos.conf <<EOF
 title   Mars OS
-linux   /vmlinuz-linux
-initrd  /initramfs-linux.img
+linux   /vmlinuz-linux-lts
+initrd  /initramfs-linux-lts.img
 options root=PARTUUID=$ROOT_UUID rw
 EOF
 

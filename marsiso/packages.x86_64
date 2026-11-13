@@ -21,7 +21,7 @@ iwd
 iw
 wireless-regdb
 
-linux
+linux-lts
 linux-firmware
 mkinitcpio
 mkinitcpio-archiso
