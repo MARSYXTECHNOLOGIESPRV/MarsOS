@@ -1,0 +1,17 @@
+plasma-desktop
+plasma-nm
+plasma-pa
+plasma-systemmonitor
+powerdevil
+bluedevil
+dolphin
+kitty
+ark
+spectacle
+kscreen
+kde-gtk-config
+xdg-desktop-portal-kde
+sddm
+pipewire
+pipewire-pulse
+wireplumber

@@ -79,6 +79,10 @@ profile_install() {
             profile_hyprland
             ;;
 
+        plasma)
+            profile_plasma
+            ;;
+
         *)
             log "Unknown profile: $PROFILE"
             return 1
@@ -99,9 +103,24 @@ profile_common() {
     arch-chroot /mnt systemctl enable NetworkManager \
         || return 1
 
-    log "Enabling Ly Display Manager"
-    arch-chroot /mnt systemctl enable ly@tty1.service \
-        || return 1
+    case "$DISPLAY_MANAGER" in
+        ly)
+            log "Enabling Ly Display Manager"
+            arch-chroot /mnt systemctl enable ly@tty1.service \
+                || return 1
+            ;;
+
+        sddm)
+            log "Enabling SDDM Display Manager"
+            arch-chroot /mnt systemctl enable sddm.service \
+                || return 1
+            ;;
+
+        *)
+            log "Unsupported display manager: $DISPLAY_MANAGER"
+            return 1
+            ;;
+    esac
 
 }
 
@@ -112,6 +131,18 @@ profile_common() {
 profile_hyprland() {
 
     log "Applying Hyprland profile"
+
+    profile_common
+
+}
+
+##################################################
+# KDE Plasma
+##################################################
+
+profile_plasma() {
+
+    log "Applying KDE Plasma profile"
 
     profile_common
 

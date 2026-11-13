@@ -41,6 +41,7 @@ main() {
 
     case "$PROFILE" in
         hyprland) PROFILE_NAME="Hyprland" ;;
+        plasma) PROFILE_NAME="KDE Plasma" ;;
     esac
 
     case "$GRAPHICS" in

@@ -2,7 +2,7 @@
 
 ##################################################
 # Mars OS Installer v1.1
-# Wizard Module 09 - System Type
+# Wizard Module 09 - System and Desktop Profile
 ##################################################
 
 set -e
@@ -52,8 +52,16 @@ main() {
     # Save Configuration
     ##################################################
 
+    local PROFILE
+    PROFILE=$(ui_menu \
+        "Desktop Profile" \
+        "Select the desktop environment to install:" \
+        hyprland "Hyprland" \
+        plasma "KDE Plasma"
+    ) || exit $?
+
     config_set FIRMWARE "$BASE_SYSTEM"
-    config_set PROFILE "hyprland"
+    config_set PROFILE "$PROFILE"
 
 
 
@@ -62,6 +70,7 @@ main() {
     ##################################################
 
     local BASE_NAME
+    local PROFILE_NAME
     case "$BASE_SYSTEM" in
 
         uefi)
@@ -74,6 +83,18 @@ main() {
 
         *)
             BASE_NAME="Unknown"
+            ;;
+
+    esac
+
+    case "$PROFILE" in
+
+        hyprland)
+            PROFILE_NAME="Hyprland"
+            ;;
+
+        plasma)
+            PROFILE_NAME="KDE Plasma"
             ;;
 
     esac
@@ -92,7 +113,7 @@ $BASE_NAME
 
 Desktop:
 
-Hyprland"
+$PROFILE_NAME"
 
 
 

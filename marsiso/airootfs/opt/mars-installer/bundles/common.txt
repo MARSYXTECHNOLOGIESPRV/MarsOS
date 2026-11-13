@@ -19,7 +19,6 @@ bluez-utils
 btop
 dialog
 ffmpeg
-ly
 gzip
 zsh
 nano

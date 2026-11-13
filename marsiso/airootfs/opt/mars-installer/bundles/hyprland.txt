@@ -1,4 +1,5 @@
 hyprland
+ly
 hyprcursor
 hyprland-qt-support
 hyprlock
