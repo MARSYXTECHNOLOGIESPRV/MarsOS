@@ -22,9 +22,7 @@ INSTALLER_DIR="$(dirname "$SCRIPT_DIR")"
 
 source "$INSTALLER_DIR/lib/util.sh"
 source "$INSTALLER_DIR/lib/config.sh"
-source "$INSTALLER_DIR/lib/graphics.sh"
 source "$INSTALLER_DIR/lib/graphics-detect.sh"
-echo "graphics.sh loaded"
 
 ##################################################
 # Main
@@ -57,17 +55,7 @@ main() {
 
 
 
-    log "Installing graphics profile: $GRAPHICS"
-
-    log "Refreshing package databases..."
-
-    pacman -Sy --noconfirm \
-    >> "$LOG_FILE" 2>&1 \
-    || die "Failed to refresh package databases."
-
-    graphics_install \
-        "$GRAPHICS" \
-        || die "Graphics installation failed."
+    log "Graphics drivers for $GRAPHICS were installed with the base package set."
 
 
 

@@ -147,6 +147,9 @@ main() {
     fi
 
 
+    config_set GRAPHICS "$GRAPHICS"
+
+
 
     log "Loading graphics bundle: $GRAPHICS"
 
@@ -230,21 +233,24 @@ pacman-key --populate archlinux \
 log "Generating mirror list..."
 
 reflector \
-    --latest 20 \
+    --latest 10 \
     --protocol https \
     --sort rate \
+    --connection-timeout 5 \
+    --download-timeout 10 \
     --save /etc/pacman.d/mirrorlist \
     || die "Failed to generate mirror list."
 
 log "Refreshing package databases..."
 
-pacman -Syy \
+pacman -Sy \
     || die "Failed to synchronize package databases."
 
 log "Running pacstrap..."
 
 pacstrap \
     -K \
+    -c \
     /mnt \
     "${PACKAGES[@]}" \
     2>&1 | tee -a "$LOG_FILE" \
