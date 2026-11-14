@@ -1,4 +1,4 @@
-nvidia-lts
+nvidia
 nvidia-utils
 nvidia-settings
 nvidia-prime
