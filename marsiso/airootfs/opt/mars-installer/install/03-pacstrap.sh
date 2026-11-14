@@ -250,7 +250,6 @@ log "Running pacstrap..."
 
 pacstrap \
     -K \
-    -c \
     /mnt \
     "${PACKAGES[@]}" \
     2>&1 | tee -a "$LOG_FILE" \
