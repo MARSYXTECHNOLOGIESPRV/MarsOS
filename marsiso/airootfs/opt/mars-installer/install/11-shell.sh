@@ -2,7 +2,7 @@
 
 ##################################################
 # Mars OS Installer v1.1
-# Install Module 11 - Shell Setup
+# Install Module 11 - Shell & User Config Setup
 ##################################################
 
 set -e
@@ -81,7 +81,7 @@ main() {
 
 
 
-    log "Shell environment installed."
+    log "Shell environment & Configuration files installed."
 
 }
 

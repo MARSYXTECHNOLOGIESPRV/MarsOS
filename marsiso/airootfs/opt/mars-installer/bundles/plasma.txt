@@ -15,3 +15,4 @@ sddm
 pipewire
 pipewire-pulse
 wireplumber
+discover

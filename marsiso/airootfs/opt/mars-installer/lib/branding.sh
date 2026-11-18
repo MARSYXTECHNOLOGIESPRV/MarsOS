@@ -29,6 +29,7 @@ branding_apply() {
     cat > /mnt/etc/os-release <<EOF
 NAME="Mars OS"
 PRETTY_NAME="Mars OS"
+VERSION_ID="V1.0.2"
 ID=marsos
 ID_LIKE=arch
 BUILD_ID=rolling
